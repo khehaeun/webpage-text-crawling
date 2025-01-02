@@ -1,7 +1,8 @@
 # webpage-text-crawling
  첫번째 코드를 마지막 화까지 실행 후 마지막 화에서는전용 코드를 추가로 입력해줘야 한다.
 
-
+```markdown
+```javascript
 //첫 화 
 // 일반 회차에서 실행하는 코드
 
@@ -25,12 +26,13 @@
     window.novelTexts.push(`=== ${chapterNumber} ===\n\n${chapterText}`);
     console.log(`회차 ${chapterNumber} 텍스트가 저장되었습니다! 총 ${window.novelTexts.length}개의 회차가 저장됨.`);
 })();
-
+````
 
 
 마지막 화에서는 추가로 이 코드를 실행해야 된다.
 저장하는 코드.
 
+```javascript
 // 마지막 회차에서 실행하는 코드
 
 (function() {
@@ -61,11 +63,13 @@
     window.novelTexts = [];
     console.log(`모든 텍스트가 파일로 저장되었습니다! (파일명: ${fileName})`);
 })();
-
+```
 마지막 화 코드는 여백이 모두 제거되는 현상을 보완함.
 위 코드는 5MB이상의 데이터를 저장하기 위해 메모리에 저장하는 방식을 택함.
 
 가벼운 내용이라면 아래의 코드 사용 가능 하다.
+
+```javascript
 // 1. 현재 회차 텍스트를 수집하고 `localStorage`에 저장
 (function() {
     // 텍스트 추출 (HTML 내용 포함)
@@ -97,7 +101,9 @@
 
     console.log(`회차 ${chapterNumber} 텍스트가 저장되었습니다! 총 ${allTexts.length}개의 회차가 저장됨.`);
 })();
+```
 
+```javascript
 // 2. 모든 텍스트를 파일로 저장
 (function() {
     let allTexts = JSON.parse(localStorage.getItem('novelTexts')) || [];
@@ -126,3 +132,4 @@
     localStorage.removeItem('novelTexts');
     console.log("모든 텍스트가 파일로 저장되었습니다!");
 })();
+```
